@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Weather</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <h1>Weather</h1>
+
+    <form class="search" id="search-form" autocomplete="off">
+      <label class="sr-only" for="city-input">City</label>
+      <input id="city-input" type="search" placeholder="Search a city, e.g. Lagos" required>
+      <button type="submit" id="search-btn">Search</button>
+    </form>
+
+    <section class="panel" aria-live="polite">
+      <!-- Idle -->
+      <p class="hint" id="idle">Enter a city name to see the current weather.</p>
+
+      <!-- Loading -->
+      <div class="loading" id="loading" hidden>
+        <span class="spinner" aria-hidden="true"></span>
+        <span>Loading weather…</span>
+      </div>
+
+      <!-- Error -->
+      <div class="error" id="error" role="alert" hidden>
+        <strong id="error-title"></strong>
+        <p id="error-message"></p>
+      </div>
+
+      <!-- Success -->
+      <div class="result" id="result" hidden>
+        <h2 id="place"></h2>
+        <div class="main">
+          <span class="icon" id="icon" aria-hidden="true"></span>
+          <span class="temp" id="temp"></span>
+        </div>
+        <p class="condition" id="condition"></p>
+
+        <dl class="stats">
+          <div>
+            <dt>Humidity</dt>
+            <dd id="humidity"></dd>
+          </div>
+          <div>
+            <dt>Wind speed</dt>
+            <dd id="wind"></dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <p class="credit">Data from <a href="https://open-meteo.com/" target="_blank" rel="noopener">Open-Meteo</a></p>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
